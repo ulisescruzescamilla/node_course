@@ -8,7 +8,7 @@ function validationHandler(schema, property) {
     // req.body // get
     // req.params // post
     // req.query
-    const {error} = schema.validate(data);
+    const {error} = schema.validate(data, {abortEarly: false});
 
     if (error) {
       next(boom.badRequest(error));
